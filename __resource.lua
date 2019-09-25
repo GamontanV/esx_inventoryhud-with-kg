@@ -12,6 +12,8 @@ client_scripts {
   "client/shop.lua",
   "client/trunk.lua",
   "client/property.lua",
+  "client/motels.lua",
+  "client/beds.lua",
   "client/player.lua",
   "locales/cs.lua",
   "locales/sv.lua",

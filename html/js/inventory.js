@@ -21,11 +21,15 @@ window.addEventListener("message", function (event) {
             $(".info-div").show();
         } else if (type === "property") {
             $(".info-div").hide();
+        } else if (type === "motels") {
+            $(".info-div").hide();
+        } else if (type === "motelsbed") {
+            $(".info-div").hide();
         } else if (type === "player") {
             $(".info-div").show();
         } else if (type === "shop") {
             $(".info-div").show();
-        }
+        } 
 
         $(".ui").fadeIn();
     } else if (event.data.action == "hide") {
@@ -325,6 +329,18 @@ $(document).ready(function () {
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
+            } else if (type === "motels" && itemInventory === "second") {
+                disableInventory(500);
+                $.post("http://esx_inventoryhud/TakeFromMotel", JSON.stringify({
+                    item: itemData,
+                    number: parseInt($("#count").val())
+                }));
+            } else if (type === "motelsbed" && itemInventory === "second") {
+                disableInventory(500);
+                $.post("http://esx_inventoryhud/TakeFromMotelBed", JSON.stringify({
+                    item: itemData,
+                    number: parseInt($("#count").val())
+                }));
             } else if (type === "player" && itemInventory === "second") {
                 disableInventory(500);
                 $.post("http://esx_inventoryhud/TakeFromPlayer", JSON.stringify({
@@ -355,6 +371,18 @@ $(document).ready(function () {
             } else if (type === "property" && itemInventory === "main") {
                 disableInventory(500);
                 $.post("http://esx_inventoryhud/PutIntoProperty", JSON.stringify({
+                    item: itemData,
+                    number: parseInt($("#count").val())
+                }));
+            } else if (type === "motels" && itemInventory === "main") {
+                disableInventory(500);
+                $.post("http://esx_inventoryhud/PutIntoMotel", JSON.stringify({
+                    item: itemData,
+                    number: parseInt($("#count").val())
+                }));
+            } else if (type === "motelsbed" && itemInventory === "main") {
+                disableInventory(500);
+                $.post("http://esx_inventoryhud/PutIntoMotelBed", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
